@@ -1,50 +1,30 @@
 #include "main.h"
 /**
- * _printf - function
- * @format: chain of charts
- * return: _printf
+ * _printf - Entry point
+ * @format: char
+ * Return:size
  */
 int _printf(const char *format, ...)
 {
+	int i = 0, size = 0;
 	va_list args;
-	int count = 0;
 
 	va_start(args, format);
-
-	while (*format)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			if (*format == 'c')
-			{
-				char c = (char)va_arg(args, int);
-
-				write(1, &c, 1);
-				count++;
-			} else if (*format == 's')
-			{
-				char *s = va_arg(args, char*);
-
-				while (*s)
-				{
-					write(1, s, 1);
-					s++;
-					count++;
-				}
-			} else if (*format == '%')
-			{
-				write(1, "%", 1);
-				count++;
-			}
-		} else
-		{
-			write(1, format, 1);
-			count++;
+			size += get_fun(format[i + 1], args);
+			i += 1;
 		}
-		format++;
+		else
+		{
+			_putchar(format[i]);
+			size += 1;
+		}
 	}
 	va_end(args);
-	return (count);
+	return (size);
 }
-
