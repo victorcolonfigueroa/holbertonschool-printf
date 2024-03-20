@@ -1,30 +1,36 @@
 #include "main.h"
+
 /**
- * _printf - Entry point
- * @format: char
- * Return:size
+ * _printf - prints different formats
+ * @format: start of the list
+ * Return: returns result
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, size = 0;
-	va_list args;
+	unsigned int i, result = 0;
+	va_list vlist;
 
-	va_start(args, format);
-	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+	
+
+	va_start(vlist, format); 
+
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+
+		if (format[i] == '%' && format[i + 1] != '\0') 
 		{
-			size += get_fun(format[i + 1], args);
-			i += 1;
+			result += get_fun(format[i + 1], &vlist);
+			i++;
 		}
-		else
+		else 
 		{
+			if (format[i] == '%')
+				return (-1);
 			_putchar(format[i]);
-			size += 1;
+			result++;
 		}
 	}
-	va_end(args);
-	return (size);
+	va_end(vlist);
+	return (result);
 }

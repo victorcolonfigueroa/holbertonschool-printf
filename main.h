@@ -1,41 +1,29 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-/**
- * struct convert - structure for symbols and functions
- *
- * @sym: The operators
- * @f: The function
- */
-struct convert
-{
-	char *sym;
-	int (*f)(va_list);
-};
-typedef struct convert conver_t;
 
-/**
- * Functions
- */
-int recording_error(const char *format, conver_t f_list[], va_list arg_list);
+
 int _printf(const char *format, ...);
-int _write_char(char);
-int print_char(va_list);
-int print_string(va_list);
-int print_percent(va_list);
-int print_integer(va_list);
-int print_number(va_list);
-int print_binary(va_list);
-int unsigned_integer(va_list);
-int print_unsgned_number(unsigned int);
-int print_reversed(va_list);
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void write_base(char *str);
-char *_memcpy(char *dest, char *src, unsigned int n);
+int get_fun(char c, va_list *vl);
 
-#endif
+int print_string(char *);
+int print_int(int);
+int _putchar(char);
+
+int accInt(va_list *);
+int accString(va_list *);
+int accChar(va_list *);
+int accPercent(va_list *vl);
+
+
+typedef struct way
+{
+	char operator;
+	int (*f)(va_list *);
+} ope;
+#endif/*MAIN_H*/
