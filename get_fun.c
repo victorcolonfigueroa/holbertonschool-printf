@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * get_print - connectes functions
+ * get_fun - connectes functions
  * @c: string
- * @vl: variadic list
+ * @vlist: variadic list
  * Return: returns 0
  */
 int get_fun(char c, va_list *vlist)
