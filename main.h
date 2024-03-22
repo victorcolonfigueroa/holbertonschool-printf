@@ -1,23 +1,29 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-#include <stdarg.h>
-#include <unistd.h>
-int _putchar(char c);
-int _printf(const char *format, ...);
-int get_fun(char format, va_list args);
-typedef struct form
-{
-	char str;
 
-	int (*print)(va_list args);
-} fmt;
-int char_print(va_list args);
-int pert_print(__attribute__((unused)) va_list args);
-int string_print(va_list args);
-int num_print(va_list args);
-int unsigned_num(va_list args);
-int binary(va_list args);
-#endif
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+
+
+int _printf(const char *format, ...);
+int get_fun(char c, va_list *vl);
+
+int print_string(char *);
+int print_int(int);
+int _putchar(char);
+
+int accInt(va_list *);
+int accString(va_list *);
+int accChar(va_list *);
+int accPercent(va_list *vl);
+
+
+typedef struct way
+{
+	char operator;
+	int (*f)(va_list *);
+} ope;
+#endif/*MAIN_H*/

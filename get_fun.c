@@ -1,31 +1,33 @@
 #include "main.h"
+
 /**
- * get_fun - Entry point
- * @format: char
- * @args: va_list
- * Return: size
+ * get_print - connectes functions
+ * @c: string
+ * @vl: variadic list
+ * Return: returns 0
  */
-int get_fun(char format, va_list args)
+int get_fun(char c, va_list *vlist)
 {
-	int j, size = 0;
-	fmt f[] = 
+	int i;
+
+	ope way[] =    
 	{
-		{'\0', NULL},
+		{'c', accChar},
+		{'s', accString},
+		{'d', accInt},
+		{'i', accInt},
+		{'%', accPercent},
+		{'\0', NULL}
 	};
 
-	for (j = 0; f[j].str != '\0'; j++)
+	for (i = 0; way[i].operator != '\0'; i++)
 	{
-		if (f[j].str == format)
+		if (way[i].operator == c)
 		{
-			size = size + f[j].print(args);
-			break;
+			return (way[i].f(vlist));
 		}
 	}
-	if (f[j].str == '\0')
-	{
-		_putchar('%');
-		_putchar(format);
-		size += 2;
-	}
-	return (size);
+	_putchar('%');
+	_putchar(c);
+	return (2);
 }
