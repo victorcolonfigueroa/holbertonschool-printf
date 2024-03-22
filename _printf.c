@@ -10,20 +10,20 @@ int _printf(const char *format, ...)
 	unsigned int i, result = 0;
 	va_list vlist;
 
-	
 
-	va_start(vlist, format); 
+
+	va_start(vlist, format);
 
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 
-		if (format[i] == '%' && format[i + 1] != '\0') 
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			result += get_fun(format[i + 1], &vlist);
 			i++;
 		}
-		else 
+		else
 		{
 			if (format[i] == '%')
 				return (-1);
