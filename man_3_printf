@@ -1,0 +1,64 @@
+.\" Manpage for _printf.
+.\"
+.TH _printf 3 "21 March 2024" "1.0" "_printf manual page"
+
+.SH NAME
+.B _printf
+\- produces output according to the format.
+
+.SH SYNOPSIS
+.B #include "main.h"
+.B #include <stdio.h>
+
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The program is a basic implementation of the printf function in C language. It allows formatting and displaying text on the console according to a specific format provided by the user.
+
+.SH CONVERSION SPECIFIERS
+.BI %c
+\- used to print characters
+
+.BI %s
+\- used to print a string
+
+.BI %%
+\- used to print the % symbol
+
+.BI %d
+\- used to print a decimal integer (assumes base 10)
+
+.BI %i
+\- used to print a decimal integer (detects the base automatically)
+
+.SH RETURN
+The number of characters printed (excluding the null byte used to end output to strings)
+
+.SH COMPILATION
+.B $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+
+.SH CODE EXTRUCTURE
+The program code is divided into several files:
+_printf.c: Contains the main _printf function that iterates over the format string and calls the corresponding print functions.
+
+get_fun.c: Defines the get_fun function that determines the appropriate print function based on the format character.
+
+print_functions.c: Contains the print functions for different data types.
+
+accTypes.c: Defines the access functions for each data type.
+
+.SH TECHNICAL DETAILS
+The program uses a variable argument list (va_list) and a set of print functions to handle different data types.
+
+.SH USAGE EXAMPLES
+$ ./program "Hello, %s" world
+Hello, world
+
+.SH BUGS
+No known bugs
+.SH REFERENCE
+Online C Documentation
+printf Manual Page
+
+.SH AUTHORS
+Written by Victor Colon Figueroa (COHORT23) and Alex Carrasquillo Villanueva (COHORT23)

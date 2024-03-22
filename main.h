@@ -1,41 +1,23 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-#include <unistd.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdarg.h>
-
-/**
- * struct convert - structure for symbols and functions
- *
- * @sym: The operators
- * @f: The function
- */
-struct convert
-{
-	char *sym;
-	int (*f)(va_list);
-};
-typedef struct convert conver_t;
-
-/**
- * Functions
- */
-int recording_error(const char *format, conver_t f_list[], va_list arg_list);
+#include <stdarg.h>
+#include <unistd.h>
+int _putchar(char c);
 int _printf(const char *format, ...);
-int _write_char(char);
-int print_char(va_list);
-int print_string(va_list);
-int print_percent(va_list);
-int print_integer(va_list);
-int print_number(va_list);
-int print_binary(va_list);
-int unsigned_integer(va_list);
-int print_unsgned_number(unsigned int);
-int print_reversed(va_list);
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void write_base(char *str);
-char *_memcpy(char *dest, char *src, unsigned int n);
+int get_fun(char format, va_list args);
+typedef struct form
+{
+	char str;
 
+	int (*print)(va_list args);
+} fmt;
+int char_print(va_list args);
+int pert_print(__attribute__((unused)) va_list args);
+int string_print(va_list args);
+int num_print(va_list args);
+int unsigned_num(va_list args);
+int binary(va_list args);
 #endif
