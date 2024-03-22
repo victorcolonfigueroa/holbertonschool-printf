@@ -2,7 +2,7 @@
 
 /**
  * get_fun - connectes functions
- * @c: string
+ * print_string - string
  * @vlist: variadic list
  * Return: returns 0
  */
