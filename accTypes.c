@@ -2,9 +2,9 @@
 
 /**
  * accString - print strings
- * @vlist: list v
+ * @vlist: list of args
  *
- * return: total charracters printed
+ * Return: total charracters printed
  */
 
 int accString(va_list *vlist)
@@ -16,7 +16,7 @@ int accString(va_list *vlist)
  * accChar - print char
  * @vlist: list of args
  *
- * return: 1 if printed correctly
+ * Return: 1 if printed correctly
  */
 
 int accChar(va_list *vlist)
@@ -28,7 +28,7 @@ int accChar(va_list *vlist)
  * accInt - print number
  * @vlist: list of args
  *
- * return: amount of digits
+ * Return: amount of digits
  */
 
 int accInt(va_list *vlist)
