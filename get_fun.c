@@ -10,8 +10,7 @@ int get_fun(char c, va_list *vlist)
 {
 	int i;
 
-	ope way[] =
-	{
+	ope way[] ={
 		{'c', accChar},
 		{'s', accString},
 		{'d', accInt},
