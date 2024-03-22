@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * accString - string
+ * accChar - charracter
+ * accInt - integer
+ * accPercent - percerts
+ * @vlist: list v
+ *
+ * return: total (1)
+ */
 
 int accString(va_list *vlist)
 {
