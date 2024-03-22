@@ -36,6 +36,13 @@ int accInt(va_list *vlist)
 	return (print_int(va_arg(*vlist, int)));
 }
 
+/**
+ * accPercent - print percerts
+ * @vlist: list of args
+ *
+ * Return: percents
+ */
+
 int accPercent(va_list *vlist)
 {
 	(void) vlist;
